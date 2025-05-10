@@ -1,0 +1,11 @@
+auth:
+  existingSecret: wikijs-db-secret
+  secretKeys:
+    userKey: POSTGRES_USER
+    passwordKey: POSTGRES_PASSWORD
+  database: wikijsdb
+
+primary:
+  persistence:
+    enabled: true
+    size: 8Gi
