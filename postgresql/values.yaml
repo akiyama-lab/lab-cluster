@@ -6,6 +6,9 @@ auth:
   database: wikijsdb
 
 primary:
+  nodeSelector:
+    kubernetes.io/hostname: bmax04
   persistence:
     enabled: true
-    size: 8Gi
+    size: 10Gi
+    storageClass: local-storage
