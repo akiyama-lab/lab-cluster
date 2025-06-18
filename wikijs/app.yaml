@@ -1,0 +1,20 @@
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: wikijs
+  namespace: argo-cd
+spec:
+  project: default
+  sources:
+    - repoURL: https://charts.js.wiki
+      chart: wiki
+      targetRevision: 2.2.23
+      helm:
+        valueFiles:
+          - $values/wikijs/values.yaml
+    - repoURL: https://github.com/akiyama-lab/lab-cluster
+      targetRevision: main
+      ref: values
+  destination:
+    server: https://kubernetes.default.svc
+    namespace: wikijs
