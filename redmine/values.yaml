@@ -1,0 +1,16 @@
+global:
+  defaultStorageClass: csi-rbd-sc
+redmineUsername: admin
+redmineLanguage: ja
+databaseType:
+  postgresql
+mariadb:
+  enabled: false
+postgresql:
+  enabled: true
+ingress:
+  enabled: true
+  ingressClassName: cilium
+  hostname: redmine.akilab.internal
+  pathType: Prefix
+  path: /

@@ -1,0 +1,20 @@
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: redmine
+  namespace: argo-cd
+spec:
+  project: default
+  sources:
+    - repoURL: https://charts.bitnami.com/bitnami
+      chart: redmine
+      targetRevision: 32.2.5
+      helm:
+        valueFiles:
+          - $values/redmine/values.yaml
+    - repoURL: https://github.com/akiyama-lab/lab-cluster
+      targetRevision: main
+      ref: values
+  destination:
+    server: https://kubernetes.default.svc
+    namespace: redmine
