@@ -9,6 +9,10 @@ mariadb:
   enabled: false
 postgresql:
   enabled: true
+  auth:
+    username: bn_redmine
+    password: redminepass
+    postgresPassword: postgres
 ingress:
   enabled: true
   ingressClassName: cilium
